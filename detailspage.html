@@ -29,6 +29,10 @@
    HEADER
 ========================= */
 
+    /* =========================
+   HEADER
+========================= */
+
     header {
       background: linear-gradient(
         180deg,
@@ -84,6 +88,34 @@
       gap: 10px;
 
       z-index: 1001;
+    }
+    .logo-img {
+      height: 45px; /* يمكنك التحكم في الارتفاع من هنا ليناسب الهيدر */
+      width: auto; /* الحفاظ على أبعاد الصورة */
+      object-fit: contain;
+      display: block;
+    }
+
+    /* تعديل اللوجو الأصلي لضمان المحاذاة */
+    .logo {
+      text-decoration: none;
+      color: #c5a059;
+      font-size: 24px; /* صغرت الخط قليلاً ليتناسب مع الصورة */
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 12px; /* المسافة بين الصورة والنص */
+      z-index: 1001;
+    }
+
+    /* تعديل للهواتف الصغيرة */
+    @media (max-width: 480px) {
+      .logo-img {
+        height: 35px; /* حجم أصغر قليلاً للموبايل */
+      }
+      .logo {
+        font-size: 18px;
+      }
     }
 
     /* =========================
@@ -320,6 +352,7 @@
         position: fixed;
         top: 0;
         right: -100%; /* مستخبية بره */
+        left: auto !important;
         width: 250px; /* عرض محدد عشان تبان */
         height: 100vh;
         background: #0a0a0a !important; /* لون غامق صريح */
@@ -341,6 +374,7 @@
       /* الكلاس اللي الـ JS بيضيفه */
       .nav-menu.active {
         right: 0 !important; /* بتدخل الشاشة */
+        left: auto !important;
       }
 
       .nav-menu li {
@@ -380,6 +414,7 @@
         margin-top: 100px;
       }
     }
+
     /* --- Luxury Dark & Gold Full Style --- */
 
     :root {
@@ -896,7 +931,11 @@
   <body>
     <nav class="navbar">
       <a href="#" class="logo">
-        <i class="fas fa-pyramid"></i>
+        <img
+          src="imgs/logo-removebg-preview.png"
+          alt="Egypt Journey Logo"
+          class="logo-img"
+        />
         Egypt Journey
       </a>
 

@@ -10,6 +10,7 @@ function closeLogin() {
     if (modal) modal.style.display = "none";
 }
 
+
 // إغلاق النافذة عند الضغط في أي مكان خارج الصندوق الأبيض
 window.onclick = function (event) {
     const modal = document.getElementById("loginModal");

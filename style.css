@@ -28,6 +28,7 @@ body {
   color: var(--dark-text);
   line-height: 1.6;
 }
+
 /* =========================
    HEADER
 ========================= */
@@ -87,6 +88,34 @@ header {
   gap: 10px;
 
   z-index: 1001;
+}
+.logo-img {
+  height: 45px; /* يمكنك التحكم في الارتفاع من هنا ليناسب الهيدر */
+  width: auto;  /* الحفاظ على أبعاد الصورة */
+  object-fit: contain;
+  display: block;
+}
+
+/* تعديل اللوجو الأصلي لضمان المحاذاة */
+.logo {
+  text-decoration: none;
+  color: #c5a059;
+  font-size: 24px; /* صغرت الخط قليلاً ليتناسب مع الصورة */
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 12px; /* المسافة بين الصورة والنص */
+  z-index: 1001;
+}
+
+/* تعديل للهواتف الصغيرة */
+@media (max-width: 480px) {
+  .logo-img {
+    height: 35px; /* حجم أصغر قليلاً للموبايل */
+  }
+  .logo {
+    font-size: 18px;
+  }
 }
 
 /* =========================
@@ -322,7 +351,7 @@ animation: fadein 0.3s ease;
   .nav-menu {
     position: fixed; 
     top: 0;
-    right: -100%; /* مستخبية بره */
+    left: -100%; /* مستخبية بره */
     width: 250px; /* عرض محدد عشان تبان */
     height: 100vh;
     background: #0a0a0a !important; /* لون غامق صريح */
@@ -333,7 +362,8 @@ animation: fadein 0.3s ease;
     gap: 30px;
     transition: 0.4s ease-in-out;
     z-index: 2000; 
-    box-shadow: -10px 0 20px rgba(0,0,0,0.5);
+    box-shadow: 10px 0 20px rgba(0,0,0,0.5);
+    
     
     /* إلغاء أي خصائص قديمة ممكن تعطلها */
     max-height: none !important; 
@@ -343,7 +373,7 @@ animation: fadein 0.3s ease;
 
   /* الكلاس اللي الـ JS بيضيفه */
   .nav-menu.active {
-    right: 0 !important; /* بتدخل الشاشة */
+    left: 0 !important; /* بتدخل الشاشة */
   }
 
   .nav-menu li {

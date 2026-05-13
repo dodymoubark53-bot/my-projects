@@ -1,0 +1,687 @@
+﻿<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Egypt Journey | Tours & Travel</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+  <a href="#" class="logo">
+    <i class="fas fa-pyramid"></i>
+    Egypt Journey
+  </a>
+
+  <!-- زر الموبايل -->
+  <button class="menu-toggle" id="menuToggle">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- القائمة -->
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#trips">Trips</a></li>
+    <li><a href="index.html#blogs">Blogs</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#contact">Contact us</a></li>
+
+    <!-- زر اللوجين للموبايل -->
+    <li class="mobile-login">
+      <button class="login-btn" onclick="openLogin()">
+        <i class="fas fa-user"></i> Login
+      </button>
+    </li>
+  </ul>
+
+  <!-- زر اللوجين للديسكتوب -->
+  <div class="nav-actions">
+    <button class="login-btn" onclick="openLogin()">
+      <i class="fas fa-user"></i> Login
+    </button>
+  </div>
+</nav>
+    <!-- Hero Section -->
+    <section class="hero">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="imgs/video33.mp4" type="video/mp4" />
+      </video>
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <h1>اكتشف سحر مصر</h1>
+        <p>رحلة لا تُنسى عبر التاريخ والثقافة المصرية العريقة</p>
+        <a href="#search-section" class="cta-button">ابحث عن رحلتك</a>
+      </div>
+    </section>
+
+    <!-- Advanced Search Section -->
+    <section class="search-section" id="search-section">
+      <div class="search-container">
+        <div class="search-box">
+          <div class="search-input-group">
+            <label><i class="fas fa-search"></i> ابحث عن رحلة</label>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="أدخل اسم الرحلة أو الوجهة..."
+            />
+          </div>
+
+          <div class="search-input-group">
+            <label><i class="fas fa-map-marker-alt"></i> الوجهة</label>
+            <select id="locationFilter">
+              <option value="">كل الوجهات</option>
+              <option value="القاهرة">القاهرة</option>
+              <option value="الأقصر">الأقصر</option>
+              <option value="أسوان">أسوان</option>
+              <option value="شرم الشيخ">شرم الشيخ</option>
+              <option value="الغردقة">الغردقة</option>
+              <option value="الإسكندرية">الإسكندرية</option>
+              <option value="سيناء">سيناء</option>
+              <option value="الصحراء الغربية">الصحراء الغربية</option>
+              <option value="واحة سيوة">واحة سيوة</option>
+            </select>
+          </div>
+
+          <div class="search-input-group">
+            <label><i class="fas fa-tag"></i> الفئة</label>
+            <select id="categoryFilter">
+              <option value="">كل الفئات</option>
+              <option value="شعبية">الأكثر شعبية</option>
+              <option value="فاخرة">رحلات فاخرة</option>
+              <option value="مغامرة">مغامرات</option>
+              <option value="تاريخية">رحلات تاريخية</option>
+              <option value="صحة">رعاية صحية</option>
+            </select>
+          </div>
+
+          <div class="search-input-group">
+            <label><i class="fas fa-dollar-sign"></i> السعر</label>
+            <select id="priceFilter">
+              <option value="">كل الأسعار</option>
+              <option value="0-100">أقل من 100$</option>
+              <option value="100-200">100$ - 200$</option>
+              <option value="200-400">200$ - 400$</option>
+              <option value="400+">400$ وأكثر</option>
+            </select>
+          </div>
+
+          <button class="search-btn" onclick="applyFilters()">
+            <i class="fas fa-search"></i>
+            بحث
+          </button>
+        </div>
+
+        <div class="filter-tags" id="filterTags">
+          <span class="filter-tag" onclick="filterByCategory('شعبية')">
+            <i class="fas fa-fire"></i> الأكثر شعبية
+          </span>
+          <span class="filter-tag" onclick="filterByCategory('فاخرة')">
+            <i class="fas fa-crown"></i> رحلات فاخرة
+          </span>
+          <span class="filter-tag" onclick="filterByCategory('مغامرة')">
+            <i class="fas fa-hiking"></i> مغامرات
+          </span>
+          <span class="filter-tag" onclick="filterByCategory('تاريخية')">
+            <i class="fas fa-landmark"></i> تاريخية
+          </span>
+          <span class="filter-tag" onclick="filterByCategory('صحة')">
+            <i class="fas fa-spa"></i> صحة ورفاهية
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section class="destinations" id="destinations">
+      <div class="destinations-container">
+        <div class="destinations-header">
+          <h2>رحلة مصر - الوجهات المتاحة</h2>
+          <a href="#trips" class="view-all">
+            عرض الكل
+            <i class="fas fa-arrow-left"></i>
+          </a>
+        </div>
+
+        
+          <div class="sort-options">
+            <select id="sortSelect" onchange="sortTrips()">
+              <option value="default">ترتيب افتراضي</option>
+              <option value="price-low">السعر: من الأقل للأعلى</option>
+              <option value="price-high">السعر: من الأعلى للأقل</option>
+              <option value="duration-low">المدة: من الأقصر للأطول</option>
+              <option value="duration-high">المدة: من الأطول للأقصر</option>
+              <option value="popular">الأكثر شعبية</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="destinations-grid" id="trips">
+          <div
+            class="destination-card"
+            data-category="شعبية تاريخية"
+            data-location="القاهرة"
+            data-price="85"
+            data-duration="1"
+            data-popular="true"
+          >
+            <div class="destination-img-container">
+              <img
+                src="https://images.unsplash.com/photo-1503177119275-0aa32b3a9368"
+                alt="جولة في القاهرة"
+                class="destination-img"
+              />
+              <span class="destination-badge">الأكثر شعبية</span>
+              <button
+                class="destination-wishlist"
+                onclick="toggleWishlist(this)"
+              >
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+            <div class="destination-info">
+              <div class="destination-location">
+                <i class="fas fa-map-marker-alt"></i> القاهرة، مصر
+              </div>
+              <h3>جولة يوم في القاهرة وأهرامات الجيزة</h3>
+              <div class="trip-meta">
+                <span class="trip-meta-item"
+                  ><i class="fas fa-clock"></i> يوم واحد</span
+                >
+                <span class="trip-meta-item"
+                  ><i class="fas fa-users"></i> مجموعات صغيرة</span
+                >
+                <span class="trip-meta-item"
+                  ><i class="fas fa-calendar"></i> يومي</span
+                >
+              </div>
+              <div class="trip-details">
+                <p class="trip-short-desc">
+                  جولة شاملة لأهرامات الجيزة العظيمة وأبو الهول والمتحف المصري.
+                </p>
+                <p class="trip-full-desc">
+                  جولة شاملة مع مرشد لأهرامات الجيزة وأبو الهول ومعبد الوادي.
+                  تتضمن الرحلة أيضاً زيارة للمتحف المصري في ميدان التحرير
+                  للاطلاع على كنوز الملك توت عنخ آمون. تشمل الوجبة الغذائية في
+                  مطعم محلي.
+                </p>
+                <button
+                  class="read-more-btn"
+                  onclick="toggleDescription(this, event)"
+                >
+                  قراءة المزيد <i class="fas fa-chevron-down"></i>
+                </button>
+              </div>
+              <div class="included-section">
+                <div class="included-title">
+                  <i class="fas fa-check-circle"></i> مشمول في الرحلة
+                </div>
+                <div class="included-list">
+                  <span class="included-item"
+                    ><i class="fas fa-check"></i> مرشد أثري</span
+                  >
+                  <span class="included-item"
+                    ><i class="fas fa-check"></i> تذاكر الدخول</span
+                  >
+                  <span class="included-item"
+                    ><i class="fas fa-check"></i> نقل مكيف</span
+                  >
+                  <span class="included-item"
+                    ><i class="fas fa-check"></i> وجبة غداء</span
+                  >
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="detailspage.html?id=1" class="view-details-btn"
+                  ><i class="fas fa-eye"></i> عرض التفاصيل</a
+                >
+                <button class="book-btn" onclick="openTripModal(0)">
+                  احجز الآن
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="destination-card"
+            data-category="فاخرة"
+            data-location="الأقصر"
+            data-price="420"
+            data-duration="5"
+            data-popular="true"
+          >
+            <div class="destination-img-container">
+              <img
+                src="imgs/2.webp"
+                alt="رحلة نيلية فاخرة"
+                class="destination-img"
+              />
+              <span class="destination-badge">فاخرة</span>
+              <button
+                class="destination-wishlist"
+                onclick="toggleWishlist(this)"
+              >
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+            <div class="destination-info">
+              <div class="destination-location">
+                <i class="fas fa-map-marker-alt"></i> الأقصر - أسوان
+              </div>
+              <h3>رحلة نيلية فاخرة لمدة 5 أيام</h3>
+              <div class="trip-meta">
+                <span class="trip-meta-item"
+                  ><i class="fas fa-clock"></i> 5 أيام</span
+                >
+                <span class="trip-meta-item"
+                  ><i class="fas fa-star"></i> 5 نجوم</span
+                >
+                <span class="trip-meta-item"
+                  ><i class="fas fa-ship"></i> سفينة فاخرة</span
+                >
+              </div>
+              <div class="trip-details">
+                <p class="trip-short-desc">
+                  رحلة سحرية على متن سفينة نيلية فاخرة 5 نجوم.
+                </p>
+                <p class="trip-full-desc">
+                  استمتع بزيارة معبد الكرنك ومعبد الأقصر ووادي الملوك ومعبد
+                  حتشبسوت في الأقصر. وفي أسوان، قم بزيارة السد العالي ومعبد فيلة
+                  واستمتع برحلة فلوكة في النيل.
+                </p>
+                <button
+                  class="read-more-btn"
+                  onclick="toggleDescription(this, event)"
+                >
+                  قراءة المزيد <i class="fas fa-chevron-down"></i>
+                </button>
+              </div>
+              <div class="included-section">
+                <div class="included-title">
+                  <i class="fas fa-check-circle"></i> مشمول في الرحلة
+                </div>
+                <div class="included-list">
+                  <span class="included-item"
+                    ><i class="fas fa-check"></i> إقامة كاملة</span
+                  >
+                  <span class="included-item"
+                    ><i class="fas fa-check"></i> جولات سياحية</span
+                  >
+                  <span class="included-item"
+                    ><i class="fas fa-check"></i> انتقالات</span
+                  >
+                  <span class="included-item"
+                    ><i class="fas fa-check"></i> مرشد خاص</span
+                  >
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="detailspage.html?id=2" class="view-details-btn"
+                  ><i class="fas fa-eye"></i> عرض التفاصيل</a
+                >
+                <button class="book-btn" onclick="openTripModal(1)">
+                  احجز الآن
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="destination-card"
+            data-category="مغامرة"
+            data-location="الصحراء الغربية"
+            data-price="190"
+            data-duration="2"
+            data-popular="false"
+          >
+            <div class="destination-img-container">
+              <img
+                src="imgs/4.webp"
+                alt="الصحراء البيضاء"
+                class="destination-img"
+              />
+              <span class="destination-badge">مغامرة</span>
+              <button
+                class="destination-wishlist"
+                onclick="toggleWishlist(this)"
+              >
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+            <div class="destination-info">
+              <div class="destination-location">
+                <i class="fas fa-map-marker-alt"></i> الصحراء الغربية
+              </div>
+              <h3>مغامرة الصحراء البيضاء والبحرية</h3>
+              <div class="trip-meta">
+                <span class="trip-meta-item"
+                  ><i class="fas fa-clock"></i> يومان</span
+                >
+                <span class="trip-meta-item"
+                  ><i class="fas fa-truck"></i> 4x4 سفاري</span
+                >
+                <span class="trip-meta-item"
+                  ><i class="fas fa-campground"></i> تخييم</span
+                >
+              </div>
+              <div class="trip-details">
+                <p class="trip-short-desc">
+                  رحلة سفاري استثنائية في الصحراء البيضاء والسوداء.
+                </p>
+                <p class="trip-full-desc">
+                  استكشف التكوينات الحجرية الفريدة وجبل كريستال. استمتع بالتخييم
+                  تحت النجوم والسباحة في الينابيع الطبيعية الساخنة في واحة
+                  بحرية.
+                </p>
+                <button
+                  class="read-more-btn"
+                  onclick="toggleDescription(this, event)"
+                >
+                  قراءة المزيد <i class="fas fa-chevron-down"></i>
+                </button>
+              </div>
+              <div class="included-section">
+                <div class="included-title">
+                  <i class="fas fa-check-circle"></i> مشمول في الرحلة
+                </div>
+                <div class="included-list">
+                  <span class="included-item"
+                    ><i class="fas fa-check"></i> جيب 4x4</span
+                  >
+                  <span class="included-item"
+                    ><i class="fas fa-check"></i> معدات التخييم</span
+                  >
+                  <span class="included-item"
+                    ><i class="fas fa-check"></i> جميع الوجبات</span
+                  >
+                  <span class="included-item"
+                    ><i class="fas fa-check"></i> مرشد محترف</span
+                  >
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="detailspage.html?id=3" class="view-details-btn"
+                  ><i class="fas fa-eye"></i> عرض التفاصيل</a
+                >
+                <button class="book-btn" onclick="openTripModal(2)">
+                  احجز الآن
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <div class="slider-container">
+      <div class="slides">
+        <div class="slide">
+          <img
+            src="imgs/Grand-Egyptian-Museum1-1280x960.jpeg"
+            class="bg-img"
+            alt="Background"
+          />
+          <div class="overlay">
+            <h2>المواقع التاريخية</h2>
+            <p>
+              استكشف الأهرامات والمعابد الفرعونية والآثار التي تروي قصص التاريخ
+              الخالدة.
+            </p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="imgs/OIP.webp" class="bg-img" alt="Background" />
+          <div class="overlay">
+            <h2>تجربة فريدة</h2>
+            <p>
+              نجمع لك بين التراث والطبيعة الساحرة في رحلة لا تُنسى عبر الزمن.
+            </p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img
+            src="imgs/الاهرامات-750x430.png"
+            class="bg-img"
+            alt="Background"
+          />
+          <div class="overlay">
+            <h2>لماذا تختارنا؟</h2>
+            <p>
+              لأننا نهتم بأدق التفاصيل لنضمن لك راحة ملكية في كل خطوة من رحلتك.
+            </p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="imgs/OIP (2).webp" class="bg-img" alt="Background" />
+          <div class="overlay">
+            <h2>ابدأ رحلتك الآن</h2>
+            <p>اكتشف أسرار الحضارة وجمال الطبيعة معنا اليوم.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+      <div class="about-container">
+        <div class="about-content">
+          <div class="about-text">
+            <h2>من نحن</h2>
+            <p>
+              مرحباً بك في رحلة مصر، شريكك الموثوق لاكتشاف سحر وجمال مصر
+              العريقة. نحن نقدم لك تجارب سياحية فريدة تجمع بين التاريخ العريق
+              والطبيعة الساحرة والضيافة المصرية الأصيلة.
+            </p>
+            <p>
+              منذ تأسيسنا، سعينا لتقديم أفضل الخدمات السياحية لعملائنا من جميع
+              أنحاء العالم. فريقنا من المرشدين المحترفين يضمن لك تجربة لا تُنسى
+              تتضمن زيارة أشهر المعالم الأثرية مثل الأهرامات الثلاثة وأبو الهول
+              ومعبد الكرنك ووادي الملوك.
+            </p>
+            <p>
+              نحن نؤمن بأن كل عميل يستحق تجربة مخصصة تناسب احتياجاته وتفضيلاته.
+              لذلك، نحن نقدم برامج سياحية مرنة تشمل الجولات الفردية والجماعية،
+              والرحلات الفاخرة والمغامرات الصحراوية.
+            </p>
+            <div class="about-stats">
+              <div class="stat-item">
+                <span class="stat-number">10+</span>
+                <span class="stat-label">سنوات خبرة</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">5000+</span>
+                <span class="stat-label">عميل سعيد</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">وجهة سياحية</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-image">
+            <img
+              src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750"
+              alt="الأهرامات"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+      <div class="contact-container">
+        <div class="section-header">
+          <h2>اتصل بنا</h2>
+          <p>
+            نحن هنا للإجابة على جميع استفساراتك ومساعدتك في تخطيط رحلتك المثالية
+          </p>
+        </div>
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <h2>معلومات الاتصال</h2>
+            <p>
+              يمكنك التواصل معنا في أي وقت عبر القنوات التالية، أو زيارة مكتبنا
+              في العنوان المحدد أدناه.
+            </p>
+            <div class="contact-details">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>الهاتف</h4>
+                  <p>01004146843</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>البريد الإلكتروني</h4>
+                  <p>dodymoubark53@gmail.com</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>العنوان</h4>
+                  <p>
+                    اللبيني - هرم - شارع المعهد العالي متفرع من شارع أولاد رجب
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form-wrapper">
+            <h2>أرسل لنا رسالة</h2>
+            <form class="contact-form">
+              <div class="form-group">
+                <input type="text" placeholder="الاسم الكامل" required />
+              </div>
+              <div class="form-group">
+                <input type="email" placeholder="البريد الإلكتروني" required />
+              </div>
+              <div class="form-group">
+                <input type="tel" placeholder="رقم الهاتف" />
+              </div>
+              <div class="form-group">
+                <textarea placeholder="رسالتك..." required></textarea>
+              </div>
+              <button type="submit" class="submit-btn">
+                <i class="fas fa-paper-plane"></i>
+                إرسال الرسالة
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3455.5!2d31.1!3d29.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDU0JzAwLjAiTiAzMcKwMDYnMDAuMCJF!5e0!3m2!1sen!2seg!4v1620000000000!5m2!1sen!2seg"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>رحلة مصر</h3>
+          <p>شريكك الموثوق لاكتشاف سحر مصر وجمالها العريق.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>روابط سريعة</h3>
+        <ul class="footer-links">
+          <li><a href="#index.html">Home</a></li>
+          <li><a href="#trips">Trips</a></li>
+          <li><a href="#blogs">Blogs</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact us</a></li>
+        </ul>
+
+        </div>
+        <div class="footer-col">
+          <h3>الوجهات</h3>
+          <ul>
+            <li><a href="#">القاهرة</a></li>
+            <li><a href="#">الأقصر</a></li>
+            <li><a href="#">أسوان</a></li>
+            <li><a href="#">شرم الشيخ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>اتصل بنا</h3>
+          <ul>
+            <li><a href="tel:01004146843">01004146843</a></li>
+            <li>
+              <a href="mailto:dodymoubark53@gmail.com"
+                >dodymoubark53@gmail.com</a
+              >
+            </li>
+            <li><a href="#">اللبيني - هرم</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2026 رحلة مصر - Egypt Journey. جميع الحقوق محفوظة.</p>
+        <p style="margin-top: 10px; font-weight: bold; color: #c5a059">
+          Powered by Dina Hefny
+        </p>
+      </div>
+    </footer>
+    <div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeLogin()">&times;</span>
+    <h2>Login</h2>
+    <form>
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email">
+      </div>
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" placeholder="Enter your password">
+      </div>
+      <button type="submit" class="submit-btn">Login</button>
+    </form>
+  </div>
+</div>
+        <script src="script.js"></script>
+  </body>
+  
+</html>
